@@ -99,8 +99,6 @@ Key Concerns:
 - Must atomically reserve a copy: acquire a distributed lock on `copy_id` in Redis, insert the loan record in `PENDING_PICKUP`, mark copy as `RESERVED` — all within a DB transaction. The Redis lock is a first guard; a partial unique index on the loans table acts as a DB-level backstop in case the lock expires
 - Redis is used only for the lock here, not as a cache — copy status on the reservation hot path is always read fresh from DB
 - After the transaction commits, the service publishes an event to the message broker and invalidates the cache key for that copy. Events are published in-process after commit, not as part of the transaction itself
-- Events emitted: LoanReserved, LoanCheckedOut, LoanReturned, LoanCancelled, ReservationExpired, LoanOverdue
-- The reservation expiry job (runs hourly via EventBridge Scheduler) also goes through this service — it queries for expired reservations, closes them, and emits ReservationExpired for each one
 
 ---
 
