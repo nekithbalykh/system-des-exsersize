@@ -59,7 +59,7 @@ Automated:
 
 ## 4. High-Level Architecture
 
-![High-Level Architecture](./diagrams/architecture.png)
+![High-Level Architecture](./architecture.png)
 
 ---
 
@@ -166,7 +166,7 @@ Copy status state changes:
 
 User remotely reserves a copy (copy is held, loan enters `PENDING_PICKUP`)
 
-![Reserve a Copy](./diagrams/reservation.png)
+![Reserve a Copy](./reservation.png)
 
 ---
 
@@ -174,7 +174,7 @@ User remotely reserves a copy (copy is held, loan enters `PENDING_PICKUP`)
 
 Admin confirms pickup at the library desk (loan becomes `CHECKED_OUT`, clock starts)
 
-![Confirm Pickup](./diagrams/checkout.png)
+![Confirm Pickup](./checkout.png)
 
 ---
 
@@ -182,5 +182,5 @@ Admin confirms pickup at the library desk (loan becomes `CHECKED_OUT`, clock sta
 
 Admin confirms return at the library desk (loan becomes `RETURNED`, copy becomes `AVAILABLE`)
 
-![Confirm Return](./diagrams/return.png)
+![Confirm Return](./return.png)
 
